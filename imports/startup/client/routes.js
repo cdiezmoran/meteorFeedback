@@ -6,9 +6,15 @@ import { Meteor } from 'meteor/meteor';
 import '../../ui/layouts/app-body.js';
 import '../../ui/pages/home.js';
 
-FlowRouter.route({
+FlowRouter.route('/', {
   name: 'App.home',
   action() {
     BlazeLayout.render('AppBody', { main: 'HomePage' });
   }
 });
+
+FlowRouter.notFound = {
+  action() {
+    BlazeLayout.render('AppBody', { main: 'HomePage' });
+  }
+};

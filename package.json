@@ -1,5 +1,5 @@
 {
-  "name": "DFHWeb",
+  "name": "meteorFeedback",
   "private": true,
   "scripts": {
     "start": "meteor run"
