@@ -2,7 +2,7 @@ import './Register_student.html';
 
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
-import { BlazeLayout } from 'meteor/kadira:blaze-layout';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Session } from 'meteor/session';
 
 //import partials
@@ -10,7 +10,8 @@ import '../partials/Student_join.html';
 import '../partials/Student_signup.html';
 import '../partials/Student_login.html';
 
-//Session.set('routeIndexString', 'JOIN');
+//import server side functions
+import { signup, signin } from '../../api/users/methods.js';
 
 Template.Register_student.onCreated(() => {
 
@@ -49,14 +50,20 @@ Template.Register_student.events({
   },
   'click #signup-submit': (event) => {
     //get values from textfields
-    var email = $('#emailField').val().trim();
-    var password = $('#passwordField').val();
+    var email = $('[name=email]').val().trim();
+    var password = $('[name=password]').val();
     //create a new user
-    Accounts.createUser({
-      email,
-      password
-    }, (error) => {
-      console.log(error.reason)
-    })
+    signup.call({ email, password });
+  },
+  'click #go-to-login': (event) => {
+    event.preventDefault();
+    Session.set('routeIndexString', 'LOGIN');
+  },
+  'click #login-submit': (event) => {
+    //Get values from fields
+    var email = $('[name=email]').val().trim();
+    var password = $('[name=password]').val();
+
+
   }
 });

@@ -1,3 +1,6 @@
 <template name="Home_page">
   <h1>Ready to start building</h1>
+  {{#if currentUser}}
+    <h2>{{emailLocalPart}}</h2>
+  {{/if}}
 </template>

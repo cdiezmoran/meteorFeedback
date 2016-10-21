@@ -8,5 +8,8 @@ Template.Home_page.onCreated(() => {
 });
 
 Template.Home_page.helpers({
-
+  emailLocalPart() {
+    const email = Meteor.user().emails[0].address;
+    return email.substring(0, email.indexOf('@'));
+  }
 });
