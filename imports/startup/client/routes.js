@@ -3,18 +3,28 @@ import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 import { Meteor } from 'meteor/meteor';
 
 //Import templates js
-import '../../ui/layouts/app-body.js';
-import '../../ui/pages/home.js';
+import '../../ui/layouts/App_body.js';
+import '../../ui/pages/Home_page.js';
+import '../../ui/accounts/Register_student.js';
 
 FlowRouter.route('/', {
   name: 'App.home',
   action() {
-    BlazeLayout.render('AppBody', { main: 'HomePage' });
+    BlazeLayout.render('App_body', { main: 'Home_page' });
   }
 });
 
+FlowRouter.route('/register/student', {
+    name: 'register_student',
+    action() {
+        BlazeLayout.render('App_body', { main: 'Register_student' });
+    }
+});
+
+// Sub Routes for Register_student
+
 FlowRouter.notFound = {
   action() {
-    BlazeLayout.render('AppBody', { main: 'HomePage' });
+    BlazeLayout.render('App_body', { main: 'Home_page' });
   }
 };

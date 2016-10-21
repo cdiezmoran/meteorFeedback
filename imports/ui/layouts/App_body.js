@@ -1,12 +1,11 @@
-import './app-body.html';
+import './App_body.html';
 
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 
-Template.AppBody.onCreated(() => {
-
+Template.App_body.onCreated(() => {
 });
 
-Template.AppBody.helpers({
-  
+Template.App_body.helpers({
+
 });

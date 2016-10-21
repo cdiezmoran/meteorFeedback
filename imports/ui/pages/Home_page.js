@@ -1,12 +1,12 @@
-import './home.html';
+import './Home_page.html';
 
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 
-Template.HomePage.onCreated(() => {
-  
+Template.Home_page.onCreated(() => {
+
 });
 
-Template.HomePage.helpers({
+Template.Home_page.helpers({
 
 });
