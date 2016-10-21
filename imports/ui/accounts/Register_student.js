@@ -63,6 +63,16 @@ Template.Register_student.events({
     var email = $('[name=email]').val().trim();
     var password = $('[name=password]').val();
 
+    //signin.call({ email, password });
+
+    Meteor.loginWithPassword(email, password, (error) => {
+      if (error) {
+        console.log(error);
+      }
+      else {
+        FlowRouter.go('/')
+      }
+    });
 
   }
 });
