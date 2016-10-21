@@ -6,9 +6,10 @@ import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 
 //import partials
 import '../partials/Student_join.html';
+import '../partials/Student_signup.html';
 
 Template.Register_student.onCreated(() => {
-    BlazeLayout.render(this.doc, { content: 'Student_join' });
+    BlazeLayout.render("Register_student", { content: 'Student_join' });
 });
 
 Template.Register_student.helpers({
