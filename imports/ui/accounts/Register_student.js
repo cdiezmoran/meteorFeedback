@@ -14,7 +14,6 @@ import '../partials/Student_login.html';
 import { signup, signin } from '../../api/users/methods.js';
 
 Template.Register_student.onCreated(() => {
-
 });
 
 Template.Register_student.helpers({
