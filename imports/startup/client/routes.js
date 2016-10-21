@@ -1,6 +1,7 @@
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 import { Meteor } from 'meteor/meteor';
+import { Session } from 'meteor/session';
 
 //Import templates js
 import '../../ui/layouts/App_body.js';
@@ -17,6 +18,7 @@ FlowRouter.route('/', {
 FlowRouter.route('/register/student', {
     name: 'register_student',
     action() {
+        Session.set('routeIndexString', 'JOIN');
         BlazeLayout.render('App_body', { main: 'Register_student' });
     }
 });

@@ -1,3 +1,13 @@
 <template name="Register_student">
-  {{> Template.dynamic template=content}}
+  {{#if isJoin}}
+    {{> Student_join}}
+  {{else}}
+    {{#if isSignup}}
+      {{> Student_signup}}
+    {{else}}
+      {{#if isLogin}}
+        {{> Student_login}}
+      {{/if}}
+    {{/if}}
+  {{/if}}
 </template>
