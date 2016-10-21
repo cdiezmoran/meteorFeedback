@@ -41,16 +41,35 @@ Template.Register_student.events({
   'click #student_code-submit': (event) => {
     //if classcode exists render signup template
     //temporary logic below
-    var classCode = $('#class_code').val().trim();
-    if (classCode == 0001) {
+    const classCode = $('#class_code').val().trim();
+    const errorLabel = $('#error-label-join');
+
+    if (!classCode) {
+      errorLabel.text('Please add a class code and try again.');
+      return;
+    }
+
+    if (classCode === "0001") {
       Session.set('routeIndexString', 'SIGNUP')
     }
     //else throw error
   },
   'click #signup-submit': (event) => {
     //get values from textfields
-    var email = $('[name=email]').val().trim();
-    var password = $('[name=password]').val();
+    const email = $('[name=email]').val().trim();
+    const password = $('[name=password]').val();
+    const errorLabel = $('#error-label-signup');
+
+    if (!email) {
+      errorLabel.text('Email field is required.');
+      return;
+    }
+
+    if(!password) {
+      errorLabel.text('Password field is required.');
+      return;
+    }
+
     //create a new user
     signup.call({ email, password });
   },
@@ -60,19 +79,27 @@ Template.Register_student.events({
   },
   'click #login-submit': (event) => {
     //Get values from fields
-    var email = $('[name=email]').val().trim();
-    var password = $('[name=password]').val();
+    const email = $('[name=email]').val().trim();
+    const password = $('[name=password]').val();
+    const errorLabel = $('#error-label-login');
 
-    //signin.call({ email, password });
+    if (!email) {
+      errorLabel.text('Email field is required.');
+      return;
+    }
+
+    if(!password) {
+      errorLabel.text('Password field is required.');
+      return;
+    }
 
     Meteor.loginWithPassword(email, password, (error) => {
       if (error) {
-        console.log(error);
+        errorLabel.text('Invalid credentials, please try again.');
       }
       else {
         FlowRouter.go('/')
       }
     });
-
   }
 });
