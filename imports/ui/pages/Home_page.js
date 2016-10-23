@@ -13,3 +13,11 @@ Template.Home_page.helpers({
     return email.substring(0, email.indexOf('@'));
   }
 });
+
+Template.Home_page.events({
+  'click .logout'(event) {
+    event.preventDefault();
+
+    Meteor.logout();
+  }
+});
