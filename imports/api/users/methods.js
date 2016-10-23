@@ -12,9 +12,10 @@ export const signup = new ValidatedMethod({
   validate: new SimpleSchema({
     email: { type: String },
     password: { type: String },
-    profile: { type: profileSchema }
+    profile: { type: profileSchema },
+    type: { type: String }
   }).validator(),
-  run({ email, password, profile }) {
+  run({ email, password, profile, type }) {
 
     const user = {
       email,
@@ -25,7 +26,12 @@ export const signup = new ValidatedMethod({
     if (Meteor.isServer) {
       newUserId = Accounts.createUser(user);
 
-      Roles.addUsersToRoles(newUserId, ['student'], 'student-group');
+      if (type === "student") {
+        Roles.addUsersToRoles(newUserId, ['student'], 'student-group');
+      }
+      else if (type === "teacher") {
+        Roles.addUsersToRoles(newUserId, ['teacher'], 'teacher-group');
+      }
     }
   }
 })

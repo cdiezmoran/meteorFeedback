@@ -111,7 +111,7 @@ function handleSignupSubmit() {
   }
 
   //create a new user
-  signup.call({ email, password, profile }, (error) => {
+  signup.call({ email, password, profile, type: "student" }, (error) => {
     if (error) {
       console.log(error);
     }

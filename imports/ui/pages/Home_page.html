@@ -5,6 +5,9 @@
     {{#if isInRole 'student' 'student-group'}}
       <h3>You are a student</h3>
     {{/if}}
+    {{#if isInRole 'teacher' 'teacher-group'}}
+      <h3>You are a teacher</h3>
+    {{/if}}
     <a href="#" class="logout">Logout</a>
   {{/if}}
 </template>
