@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
+import { Roles } from 'meteor/alanning:roles';
 
 const profileSchema = new SimpleSchema({
   firstName: { type: String },
@@ -21,6 +22,10 @@ export const signup = new ValidatedMethod({
       profile
     }
 
-    Accounts.createUser(user);
+    if (Meteor.isServer) {
+      newUserId = Accounts.createUser(user);
+
+      Roles.addUsersToRoles(newUserId, ['student'], 'student-group');
+    }
   }
 })

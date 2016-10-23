@@ -2,6 +2,9 @@
   <h1>Ready to start building</h1>
   {{#if currentUser}}
     <h2>{{emailLocalPart}}</h2>
+    {{#if isInRole 'student' 'student-group'}}
+      <h3>You are a student</h3>
+    {{/if}}
     <a href="#" class="logout">Logout</a>
   {{/if}}
 </template>
