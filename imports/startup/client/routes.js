@@ -23,7 +23,7 @@ FlowRouter.route('/register/student', {
     }
 });
 
-FlowRouter.route('register/teacher', {
+FlowRouter.route('/register/teacher', {
     name: 'register_teacher',
     action() {
         Session.set('route_index_string', 'JOIN');

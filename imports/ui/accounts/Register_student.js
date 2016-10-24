@@ -175,6 +175,6 @@ function handleJoinSubmit() {
     Session.set('routeIndexString', 'SIGNUP')
   }
   else {
-    errorlabel.text('No class room found for that class code.');
+    errorLabel.text('No class room found for that class code.');
   }
 }

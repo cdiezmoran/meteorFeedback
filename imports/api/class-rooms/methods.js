@@ -7,7 +7,12 @@ import { ClassRooms } from './class-rooms.js';
 
 export const createClassRoom = new ValidatedMethod({
   name: 'classRooms.insert',
-  validate: ClassRooms.schema.validator(),
+  validate: new SimpleSchema({
+    name: { type: String },
+    creatorId: { type: String },
+    studentIds: { type: [String] },
+    teacherIds: { type: [String] }
+  }).validator(),
   run({ name, creatorId, studentIds, teacherIds }) {
     //Make sure classCode is unique
     do {
@@ -36,8 +41,8 @@ export const createClassRoom = new ValidatedMethod({
 export const addUserToClassRoom = new ValidatedMethod({
   name: 'classRooms.newUser',
   validate: new SimpleSchema({
-    classRoomId: { type: String, regEx: SimpleSchema.RegEx.Id },
-    userId: { type: String, regEx: SimpleSchema.RegEx.Id }
+    classRoomId: { type: String },
+    userId: { type: String }
   }).validator(),
   run({ classRoomId, userId }) {
 
@@ -53,8 +58,8 @@ export const addUserToClassRoom = new ValidatedMethod({
 export const removeUserFromClassRoom = new ValidatedMethod({
   name: 'classRooms.removeUser',
   validate: new SimpleSchema({
-    classRoomId: { type: String, regEx: SimpleSchema.RegEx.Id },
-    userId: { type: String, regEx: SimpleSchema.RegEx.Id }
+    classRoomId: { type: String },
+    userId: { type: String }
   }).validator(),
   run({ classRoomId, userId }) {
 
@@ -70,7 +75,7 @@ export const removeUserFromClassRoom = new ValidatedMethod({
 export const removeClassRoom = new ValidatedMethod({
   name: 'classRooms.remove',
   validate: new SimpleSchema({
-    classRoomId: { type: String, regEx: SimpleSchema.RegEx.Id }
+    classRoomId: { type: String }
   }).validator(),
   run({ classRoomId }) {
     const classRoom = ClassRooms.findOne(classRoomId);
