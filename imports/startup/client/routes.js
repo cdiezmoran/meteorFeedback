@@ -23,6 +23,14 @@ FlowRouter.route('/register/student', {
     }
 });
 
+FlowRouter.route('register/teacher', {
+    name: 'register_teacher',
+    action() {
+        Session.set('route_index_string', 'JOIN');
+        BlazeLayout.render('App_body', { main: 'Register_teacher' });
+    }
+});
+
 // Sub Routes for Register_student
 
 FlowRouter.notFound = {
