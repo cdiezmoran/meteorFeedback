@@ -5,6 +5,8 @@ import { Template } from 'meteor/templating';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Session } from 'meteor/session';
 
+import { ClassRooms } from '../../api/class-rooms/class-rooms.js';
+
 //import partials
 import '../partials/Student_join.html';
 import '../partials/Student_signup.html';
@@ -14,6 +16,7 @@ import '../partials/Student_login.html';
 import { signup } from '../../api/users/methods.js';
 
 Template.Register_student.onCreated(() => {
+  Meteor.subscribe('classRooms.all');
 });
 
 Template.Register_student.helpers({
@@ -153,7 +156,7 @@ function handleSigninSubmit() {
 function handleJoinSubmit() {
   //if classcode exists render signup template
   //temporary logic below
-  const classCode = $('[name=classCode]').val().trim();
+  const classCode = $('[name=classCode]').val().trim().toLowerCase();
   const errorLabel = $('#error-label-join');
 
   if (!classCode) {
@@ -161,8 +164,17 @@ function handleJoinSubmit() {
     return;
   }
 
-  if (classCode === "0001") {
+  if (classCode.length < 6 || classCode.length > 6) {
+    errorLabel.text('Invalid class code');
+    return;
+  }
+
+  classRoom = ClassRooms.findOne({ classCode });
+
+  if (classRoom) {
     Session.set('routeIndexString', 'SIGNUP')
   }
-  //else throw error
+  else {
+    errorlabel.text('No class room found for that class code.');
+  }
 }
