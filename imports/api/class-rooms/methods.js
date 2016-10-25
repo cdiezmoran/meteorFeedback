@@ -46,10 +46,12 @@ export const addUserToClassRoom = new ValidatedMethod({
   }).validator(),
   run({ classRoomId, userId }) {
 
-    if(Roles.userIsInRole(userId, ['students'], 'students-group')) {
+    console.log("adding user");
+    if(Roles.userIsInRole(userId, ['student'], 'student-group')) {
       ClassRooms.update(classRoomId, { $push: { studentIds: userId } });
+      console.log("added student");
     }
-    else if (Roles.userIsInRole(userId, ['teachers'], 'teachers-group')) {
+    else if (Roles.userIsInRole(userId, ['teacher'], 'teacher-group')) {
       ClassRooms.update(classRoomId, { $push: { teacherIds: userId } });
     }
   }
@@ -63,10 +65,10 @@ export const removeUserFromClassRoom = new ValidatedMethod({
   }).validator(),
   run({ classRoomId, userId }) {
 
-    if(Roles.userIsInRole(userId, ['students'], 'students-group')) {
+    if(Roles.userIsInRole(userId, ['student'], 'student-group')) {
       ClassRooms.update(classRoomId, { $pull: { studentIds: userId } });
     }
-    else if (Roles.userIsInRole(userId, ['teachers'], 'teachers-group')) {
+    else if (Roles.userIsInRole(userId, ['teacher'], 'teacher-group')) {
       ClassRooms.update(classRoomId, { $pull: { teacherIds: userId } });
     }
   }
@@ -88,51 +90,3 @@ export const removeClassRoom = new ValidatedMethod({
     ClassRooms.remove(classRoomId)
   }
 })
-
-/*export const addStudentToClassRoom = new ValidatedMethod({
-  name: 'classRooms.newStudent',
-  validate: new SimpleSchema({
-    classRoomId: { type: String, regEx: SimpleSchema.RegEx.Id },
-    studentId: { type: String, regEx: SimpleSchema.RegEx.Id }
-  }).validator(),
-  run({ classRoomId, studentId }) {
-
-    ClassRooms.update(classRoomId, { $push: { studentIds: studentId } });
-  }
-});
-
-export const addTeacherToClassRoom = new ValidatedMethod({
-  name: 'classRooms.newTeacher',
-  validate: new SimpleSchema({
-    classRoomId: { type: String, regEx: SimpleSchema.RegEx.Id },
-    teacherId: { type: String, regEx: SimpleSchema.RegEx.Id }
-  }).validator(),
-  run({ classRoomId, teacherId }) {
-
-    ClassRooms.update(classRoomId, { $push: { teacherIds: teacherId } });
-  }
-});
-
-export const removeStudentFromClassRoom = new ValidatedMethod({
-  name: 'classRooms.removeStudent',
-  validate: new SimpleSchema({
-    classRoomId: { type: String, regEx: SimpleSchema.RegEx.Id },
-    studentId: { type: String, regEx: SimpleSchema.RegEx.Id }
-  }).validator(),
-  run({ classRoomId, studentId }) {
-
-    ClassRooms.update(classRoomId, { $pull: { studentIds: studentId } });
-  }
-});
-
-export const removeTeacherFromClassRoom = new ValidatedMethod({
-  name: 'classRooms.removeStudent',
-  validate: new SimpleSchema({
-    classRoomId: { type: String, regEx: SimpleSchema.RegEx.Id },
-    teacherId: { type: String, regEx: SimpleSchema.RegEx.Id }
-  }).validator(),
-  run({ classRoomId, teacherId }) {
-
-    ClassRooms.update(classRoomId, { $pull: { teacherIds: teacherId } });
-  }
-});*/
