@@ -1,13 +1,16 @@
 <template name="Register_student">
-  {{#if isJoin}}
-    {{> Student_join}}
-  {{else}}
-    {{#if isSignup}}
-      {{> Student_signup}}
+  <div class="register-student">
+    {{#if isJoin}}
+      {{> Student_join}}
     {{else}}
-      {{#if isLogin}}
-        {{> Student_login}}
+      {{#if isSignup}}
+        {{> Student_signup}}
+      {{else}}
+        {{#if isLogin}}
+          {{> Student_login}}
+        {{/if}}
       {{/if}}
     {{/if}}
-  {{/if}}
+  </div>
+
 </template>

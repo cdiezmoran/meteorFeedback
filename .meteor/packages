@@ -42,7 +42,7 @@ arillo:flow-router-helpers
 zimme:active-route
 
 aldeed:collection2
-materialize:materialize
+materialize:materialize@=0.97.6
 session
 accounts-base
 alanning:roles

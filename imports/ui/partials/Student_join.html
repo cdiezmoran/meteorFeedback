@@ -1,11 +1,18 @@
 <template name="Student_join">
-    <div style="height: 400px; width:400px;">
-      <h1>Join</h1>
-      <form class="form-join">
-        Class Code: <input type="text" name="classCode"><br>
-        <p id="error-label-join"></p>
-        <input type="submit" value="next" class="student_code-submit">
-        Already have an account? <a href="#" class="go-to-login">Login</a>
-      </form>
+    <div class="card">
+      <div class="card-content center-align">
+        <h2>Join</h2>
+        <form class="form-join">
+          <div class="input-field col s12">
+            <input id="classcode" type="text" class="validate" name="classCode">
+            <label for="classCode">Class Code</label>
+          </div>
+          <p id="error-label-join"></p>
+          <input type="submit" value="Next" class="student_code-submit button-round">
+          <p>
+            Already have an account? <a href="#" class="go-to-login">Login</a>
+          </p>
+        </form>
+      </div>
     </div>
 </template>
