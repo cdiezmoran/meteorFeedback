@@ -25,13 +25,14 @@ export const signup = new ValidatedMethod({
     if (Meteor.isServer) {
       newUserId = Accounts.createUser(user);
 
-      Meteor.users.update(newUserId, { $set: { firstName: profile.firstName, lastName: profile.lastName } })
-
       if (type === "student") {
+        Meteor.users.update(newUserId, { $set: { firstName: profile.firstName, lastName: profile.lastName } })
         Roles.addUsersToRoles(newUserId, ['student'], 'student-group');
       }
       else if (type === "teacher") {
+        Meteor.users.update(newUserId, { $set: { preferedName: profile.firstName } })
         Roles.addUsersToRoles(newUserId, ['teacher'], 'teacher-group');
+
       }
     }
   }
