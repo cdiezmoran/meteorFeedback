@@ -46,10 +46,8 @@ export const addUserToClassRoom = new ValidatedMethod({
   }).validator(),
   run({ classRoomId, userId }) {
 
-    console.log("adding user");
     if(Roles.userIsInRole(userId, ['student'], 'student-group')) {
       ClassRooms.update(classRoomId, { $push: { studentIds: userId } });
-      console.log("added student");
     }
     else if (Roles.userIsInRole(userId, ['teacher'], 'teacher-group')) {
       ClassRooms.update(classRoomId, { $push: { teacherIds: userId } });

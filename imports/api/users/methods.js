@@ -19,12 +19,13 @@ export const signup = new ValidatedMethod({
 
     const user = {
       email,
-      password,
-      profile
+      password
     }
 
     if (Meteor.isServer) {
       newUserId = Accounts.createUser(user);
+
+      Meteor.users.update(newUserId, { $set: { firstName: profile.firstName, lastName: profile.lastName } })
 
       if (type === "student") {
         Roles.addUsersToRoles(newUserId, ['student'], 'student-group');
