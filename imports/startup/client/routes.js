@@ -5,14 +5,14 @@ import { Session } from 'meteor/session';
 
 //Import templates js
 import '../../ui/layouts/App_body.js';
-import '../../ui/pages/Home_page.js';
+import '../../ui/pages/Landing_page.js';
 import '../../ui/accounts/Register_student.js';
 
 FlowRouter.route('/', {
   name: 'App.home',
   action() {
-    BlazeLayout.render('App_body', { main: 'Home_page' });
-  }
+    BlazeLayout.render('App_body', { main: 'Landing_page' });
+    }
 });
 
 FlowRouter.route('/register/student', {
@@ -35,6 +35,7 @@ FlowRouter.route('/register/teacher', {
 
 FlowRouter.notFound = {
   action() {
-    BlazeLayout.render('App_body', { main: 'Home_page' });
+      // TODO: UPDATE ME TO 404 PAGE PLS CARLOS :-[
+    BlazeLayout.render('App_body', { main: 'Landing_page' });
   }
 };

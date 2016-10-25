@@ -1,7 +1,19 @@
 <template name="App_body">
 
-  <div class="app-content">
+    {{#if currentUser}}
+
+        {{#if isInRole 'student' 'student-group'}}
+            {{> Student_header}}
+        {{/if}}
+
+        {{#if isInRole 'teacher' 'teacher-group'}}
+            {{> Teacher_header}}
+        {{/if}}
+    {{else}}
+        {{> Default_header}}
+    {{/if}}
+
+    <!-- MAIN CONTENT HERE -->
     {{> Template.dynamic template=main}}
-  </div>
 
 </template>

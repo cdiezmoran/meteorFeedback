@@ -1,18 +1,24 @@
 <template name="Student_join">
-    <div class="student-class-code-card">
-      <div class="card-content center-align">
-        <h2>Join</h2>
-        <form class="form-join">
-          <div class="input-field col s12">
-            <input id="classcode" type="text" class="validate" name="classCode">
-            <label for="classCode">Class Code</label>
-          </div>
-          <p id="error-label-join"></p>
-          <input type="submit" value="Next" class="student_code-submit button-round">
-          <p>
-            Already have an account? <a href="#" class="go-to-login">Login</a>
-          </p>
-        </form>
-      </div>
+    <div class="container">
+        <div class="row">
+            <div class="col s6 offset-s3">
+                <div class="card">
+                    <div class="card-content center-align">
+                        <h2>Join</h2>
+                        <form class="form-join">
+                            <div class="input-field col s12">
+                                <input id="classcode" type="text" class="validate" name="classCode">
+                                <label for="classCode" style="text-align: left;">Class Code</label>
+                            </div>
+                            <p id="error-label-join"></p>
+                            <input type="submit" value="Next" class="student_code-submit button-round">
+                            <p style="margin: 5% 0;">
+                                Already have an account? <a href="#" class="go-to-login">Login</a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
