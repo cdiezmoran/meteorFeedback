@@ -19,12 +19,6 @@ Template.Register_teacher.onCreated(() => {
 
 
 Template.Register_teacher.helpers({
-  isJoin() {
-    if (Session.get('route_index_string') === 'JOIN') {
-      return true
-    }
-    return false
-  },
   isSignup() {
     if (Session.get('route_index_string') === 'SIGNUP') {
       return true
@@ -40,18 +34,6 @@ Template.Register_teacher.helpers({
 });
 
 Template.Register_teacher.events({
-    'click .student_code-submit'(event) {
-        event.preventDefault();
-
-        handleJoinSubmit();
-    },
-
-    'submit .form-join'(event) {
-        event.preventDefault();
-
-        handleJoinSubmit();
-    },
-
     'click .signup-submit'(event) {
         event.preventDefault();
 
@@ -87,18 +69,12 @@ function handleSignupSubmit() {
   //get values from textfields
   const email = $('[name=email]').val().trim();
   const password = $('[name=password]').val();
-  const firstName = $('[name=fname]').val().trim();
-  const lastName = $('[name=lname]').val().trim();
+  const prefName = $('[name=prefName]').val();
   const errorLabel = $('#error-label-signup');
 
   //Check if fields are empty
-  if(!firstName) {
-    errorLabel.text('First name field is required.');
-    return;
-  }
-
-  if(!lastName) {
-    errorLabel.text('Last name field is required.');
+  if(!prefName) {
+    errorLabel.text('Preffered Name field is required.');
     return;
   }
 
@@ -114,8 +90,8 @@ function handleSignupSubmit() {
 
   //create profile object
   const profile = {
-    firstName,
-    lastName
+    firstName: prefName,
+    lastName: ""
   }
 
   //create a new user
@@ -157,21 +133,4 @@ function handleSigninSubmit() {
       FlowRouter.go('/')
     }
   });
-}
-
-function handleJoinSubmit() {
-  //if classcode exists render signup template
-  //temporary logic below
-  const classCode = $('[name=classCode]').val().trim();
-  const errorLabel = $('#error-label-join');
-
-  if (!classCode) {
-    errorLabel.text('Please add a class code and try again.');
-    return;
-  }
-
-  if (classCode === "0001") {
-    Session.set('route_index_string', 'SIGNUP')
-  }
-  //else throw error
 }
