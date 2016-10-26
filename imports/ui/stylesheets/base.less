@@ -1,5 +1,11 @@
 @import './colors.less';
 
-.register-student {
-  background-color: @color-cyan;
+.go-to-login, .go-to-join {
+  transition: color 0.20s ease-out;
+  color: @color-cyan;
+}
+
+.go-to-login:hover, .go-to-join:hover {
+  transition: color 0.20s ease-in;
+  color: @color-cyan-dark;
 }

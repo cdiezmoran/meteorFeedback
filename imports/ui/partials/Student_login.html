@@ -1,19 +1,29 @@
 <template name="Student_login">
-  <div class="valign">
-    <div class="card">
+  <div class="content">
+    <div class="card center-card-login hoverable">
       <div class="card-content center-align">
-        <h2>Welcome Back!</h2>
-        <form class="form-signin">
-          <div class="input-field col s12">
-            <input id="email" type="email" class="validate" name="email">
-            <label for="email">Email</label>
+        <h4>Welcome Back!</h4>
+        <form class="form-signin flow-form">
+          <div class="bg-grey">
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="email" type="email" class="validate" name="email" placeholder="Email">
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="password" type="password" class="validate" name="password" placeholder="Password">
+              </div>
+            </div>
           </div>
-          <div class="input-field col s12">
-            <input id="password" type="password" class="validate" name="password">
-            <label for="password">Password</label>
+          <div class="form-footer-login">
+            <p id="error-label-login"></p>
+            <input type="submit" value="Login" class="login-submit button-round">
+            <p style="margin-top: 15px; margin-left: 10px;">
+              New to [our name]? <a href="#" class="go-to-join"><strong>Sign up!</strong></a>
+            </p>
           </div>
-          <p id="error-label-login"></p>
-          <input type="submit" value="Sign in" class="login-submit button-round">
+
         </form>
       </div>
     </div>

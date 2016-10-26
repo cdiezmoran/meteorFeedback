@@ -66,6 +66,11 @@ Template.Register_student.events({
 
     Session.set('routeIndexString', 'LOGIN');
   },
+  'click .go-to-join'(event) {
+    event.preventDefault();
+
+    Session.set('routeIndexString', 'JOIN');
+  },
   'click .signin-submit'(event) {
     event.preventDefault();
 
