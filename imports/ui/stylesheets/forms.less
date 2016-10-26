@@ -1,12 +1,36 @@
 @import './colors.less';
 
    /* label focus color */
-   .input-field input[type=text]:focus + label {
-     color: @color-cyan;
-     text-align: left;
+   .input-field {
+     input[type=text]:focus + label, input[type=email]:focus + label, input[type=password]:focus + label {
+       color: @color-cyan;
+       text-align: left;
+     }
+
    }
    /* label underline focus color */
-   .input-field input[type=text]:focus {
-     border-bottom: 1px solid @color-cyan;
-     box-shadow: 0 1px 0 0 @color-cyan;
+   .input-field {
+     input[type=text]:focus, input[type=email]:focus, input[type=password]:focus  {
+       border-bottom: 1px solid @color-cyan;
+       box-shadow: 0 1px 0 0 @color-cyan;
+     }
+   }
+
+   .input-field input + label {
+     text-align: left;
+   }
+
+   input[type=text], input[type=email], input[type=password] {
+     background-color: white;
+     border: none;
+     border-radius: 0;
+     outline: none;
+     height: 3rem;
+     width: 100%;
+     font-size: 1em;
+     margin: 0 0 15px 0;
+     padding: 0 10px;
+     box-shadow: none;
+     box-sizing: border-box;
+     transition: all 0.3s;
    }

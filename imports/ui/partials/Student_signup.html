@@ -1,30 +1,36 @@
 <template name="Student_signup">
-  <div class="valign">
-    <div class="card">
+  <div class="content">
+    <div class="card center-card-signup hoverable">
       <div class="card-content center-align">
-        <h2>Welcome</h2>
-        <form class="form-signup">
-          <div class="input-field col s12">
-            <input id="fname" type="text" class="validate" name="fname">
-            <label for="fname">First Name</label>
+        <h3>Welcome</h3>
+        <form class="form-signup flow-form">
+          <div class="bg-grey">
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="fname" type="text" class="validate" name="fname" placeholder="First Name">
+              </div>
+              <div class="input-field col s6">
+                <input id="lname" type="text" class="validate" name="lname" placeholder="Last Name">
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12 browser-default">
+                <input id="email" type="email" class="validate" name="email" placeholder="Email">
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="password" type="password" class="validate" name="password" placeholder="Password">
+              </div>
+            </div>
           </div>
-          <div class="input-field col s12">
-            <input id="lname" type="text" class="validate" name="lname">
-            <label for="lname">Last Name</label>
+          <div class="form-footer-signup">
+            <p id="error-label-signup"></p>
+            <input type="submit" value="Sign Up" class="signup-submit button-round">
+            <p style="margin-top: 15px; margin-left: 10px;">
+              Already have an account? <a href="#" class="go-to-login"><strong>Login</strong></a>
+            </p>
           </div>
-          <div class="input-field col s12">
-            <input id="email" type="email" class="validate" name="email">
-            <label for="email">Email</label>
-          </div>
-          <div class="input-field col s12">
-            <input id="password" type="password" class="validate" name="password">
-            <label for="password">Password</label>
-          </div>
-          <p id="error-label-signup"></p>
-          <input type="submit" value="Sign Up" class="signup-submit button-round">
-          <p>
-            Already have an account? <a href="#" class="go-to-login">Login</a>
-          </p>
         </form>
       </div>
     </div>
