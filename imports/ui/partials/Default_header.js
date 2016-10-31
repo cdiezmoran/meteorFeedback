@@ -7,14 +7,6 @@ import './Signin_modal.html';
 var modal;
 
 Template.Default_header.onCreated(() => {
-    // When the user clicks anywhere outside of the modal, close it
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            console.log("MODAL CLOSED VIA OUTSIDE");
-            modal.hide();
-        }
-    }
 });
 
 Template.Default_header.onRendered(() => {

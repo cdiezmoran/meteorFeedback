@@ -6,6 +6,9 @@ import { Template } from 'meteor/templating';
 Template.Landing_page.onCreated(() => {
 });
 
+Template.Landing_page.onRendered(() => {
+});
+
 Template.Landing_page.helpers({
   emailLocalPart() {
     const email = Meteor.user().emails[0].address;
@@ -15,8 +18,22 @@ Template.Landing_page.helpers({
 
 Template.Landing_page.events({
   'click .logout'(event) {
-    event.preventDefault();
+      event.preventDefault();
 
-    Meteor.logout();
+      Meteor.logout();
+  },
+
+  'click #student'(event) {
+      event.preventDefault();
+
+      // modal.hide();
+      Session.set('routeIndexString', 'LOGIN');
+  },
+
+  'click #teacher'(event) {
+      event.preventDefault();
+
+      // modal.hide();
+      Session.set('route_index_string', 'LOGIN');
   }
 });

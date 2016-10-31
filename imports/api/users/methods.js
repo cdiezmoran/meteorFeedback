@@ -23,17 +23,36 @@ export const signup = new ValidatedMethod({
     }
 
     if (Meteor.isServer) {
-      newUserId = Accounts.createUser(user);
+        // Created User
+        newUserId = Accounts.createUser(user);
 
+        // Adding top level fields to each user for custom data
       if (type === "student") {
-        Meteor.users.update(newUserId, { $set: { firstName: profile.firstName, lastName: profile.lastName } })
+        Meteor.users.update(newUserId, {
+            $set: {
+                firstName: profile.firstName,
+                lastName: profile.lastName,
+                pendingForms: []
+            }
+        });
         Roles.addUsersToRoles(newUserId, ['student'], 'student-group');
       }
       else if (type === "teacher") {
-        Meteor.users.update(newUserId, { $set: { preferedName: profile.firstName } })
+        Meteor.users.update(newUserId, {
+            $set: {
+                preferedName: profile.firstName,
+                sentForms: []
+            }
+        });
         Roles.addUsersToRoles(newUserId, ['teacher'], 'teacher-group');
-
       }
     }
   }
-})
+});
+
+// export const submitTeacherAssesment = new ValidatedMethod({
+//     name: 'users.signup',
+//     validate: new SimpleSchema({
+//
+//     })
+// });
