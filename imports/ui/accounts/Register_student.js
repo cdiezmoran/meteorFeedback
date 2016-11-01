@@ -22,6 +22,7 @@ Template.Register_student.onCreated(() => {
 Template.Register_student.helpers({
   isJoin() {
     if (Session.get('routeIndexString') === 'JOIN') {
+        console.log("STUDENT JOIN");
       return true
     }
     return false
@@ -153,14 +154,14 @@ function handleSigninSubmit() {
       errorLabel.text('Invalid credentials, please try again.');
     }
     else {
-      FlowRouter.go('/')
+      FlowRouter.go('/home')
     }
   });
 }
 
 function handleJoinSubmit() {
-  //if classcode exists render signup template
-  //temporary logic below
+  // If classcode exists render signup template
+  // Temporary logic below
   const classCode = $('[name=classCode]').val().trim().toLowerCase();
   const errorLabel = $('#error-label-join');
 

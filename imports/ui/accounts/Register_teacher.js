@@ -6,9 +6,8 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Session } from 'meteor/session';
 
 //import partials
-import '../partials/Teacher_join.html';
-import '../partials/Teacher_signup.html';
 import '../partials/Teacher_login.html';
+import '../partials/Teacher_signup.html';
 
 //import server side functions for Users
 import { signup } from '../../api/users/methods.js';
@@ -26,6 +25,7 @@ Template.Register_teacher.helpers({
     return false
   },
   isLogin() {
+      console.log("I AM HERE FUCKER!");
     if (Session.get('route_index_string') === 'LOGIN') {
       return true
     }
@@ -50,6 +50,12 @@ Template.Register_teacher.events({
         event.preventDefault();
 
         Session.set('route_index_string', 'LOGIN');
+    },
+
+    'click .go-to-join'(event) {
+        event.preventDefault();
+
+        Session.set('route_index_string', 'SIGNUP');
     },
 
     'click .signin-submit'(event) {
@@ -130,7 +136,8 @@ function handleSigninSubmit() {
       errorLabel.text('Invalid credentials, please try again.');
     }
     else {
-      FlowRouter.go('/')
+        // Session.set('route_index_string', 'SIGNUP');
+        FlowRouter.go('/teacher/home')
     }
   });
 }

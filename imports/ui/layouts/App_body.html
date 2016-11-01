@@ -3,17 +3,30 @@
     {{#if currentUser}}
 
         {{#if isInRole 'student' 'student-group'}}
-            {{> Student_header}}
+            <div class="container">
+                {{> Student_header}}
+
+                <!-- MAIN CONTENT HERE -->
+                {{> Template.dynamic template=main}}
+            </div>
+
         {{/if}}
 
         {{#if isInRole 'teacher' 'teacher-group'}}
-            {{> Teacher_header}}
+            <div class="container">
+                {{> Teacher_header}}
+
+                <!-- MAIN CONTENT HERE -->
+                {{> Template.dynamic template=main}}
+            </div>
+
         {{/if}}
     {{else}}
         {{> Default_header}}
+
+        <!-- MAIN CONTENT HERE -->
+        {{> Template.dynamic template=main}}
     {{/if}}
 
-    <!-- MAIN CONTENT HERE -->
-    {{> Template.dynamic template=main}}
 
 </template>

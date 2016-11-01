@@ -50,9 +50,7 @@ export const signup = new ValidatedMethod({
   }
 });
 
-// export const submitTeacherAssesment = new ValidatedMethod({
-//     name: 'users.signup',
-//     validate: new SimpleSchema({
+// TODO: COMPLETE PART 2 OF SUBMITTING A FORM
+// export const saveStudentAssesment = new ValidatedMethod({
 //
-//     })
 // });

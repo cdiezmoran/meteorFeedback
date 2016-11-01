@@ -11,9 +11,10 @@ export const createClassRoom = new ValidatedMethod({
     name: { type: String },
     creatorId: { type: String },
     studentIds: { type: [String] },
-    teacherIds: { type: [String] }
+    teacherIds: { type: [String] },
+    teacherAssesments: { type: [Object] }
   }).validator(),
-  run({ name, creatorId, studentIds, teacherIds }) {
+  run({ name, creatorId, studentIds, teacherIds, teacherAssesments }) {
     //Make sure classCode is unique
     do {
       //Generate class code string by getting a random number
@@ -31,6 +32,7 @@ export const createClassRoom = new ValidatedMethod({
       creatorId,
       studentIds,
       teacherIds,
+      teacherAssesments,
       createdAt: new Date()
     }
 
@@ -87,4 +89,9 @@ export const removeClassRoom = new ValidatedMethod({
 
     ClassRooms.remove(classRoomId)
   }
-})
+});
+
+// TODO: COMPLETE PART 2 OF SUBMITTING A FORM
+// export const saveTeacherAssesment = new ValidatedMethod({
+//
+// });

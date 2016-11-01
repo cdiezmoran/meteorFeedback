@@ -40,6 +40,10 @@ ClassRooms.schema = new SimpleSchema({
   teacherIds: {
     type: [String],
     regEx: SimpleSchema.RegEx.Id
+},
+  teacherAssesments: {
+    type: [Object],
+    regEx: SimpleSchema.RegEx.Id
   }
 });
 

@@ -7,6 +7,7 @@ import { Session } from 'meteor/session';
 import '../../ui/layouts/App_body.js';
 import '../../ui/pages/Landing_page.js';
 import '../../ui/accounts/Register_student.js';
+import '../../ui/accounts/Register_teacher.js';
 
 FlowRouter.route('/', {
   name: 'App.home',
@@ -26,8 +27,22 @@ FlowRouter.route('/register/student', {
 FlowRouter.route('/register/teacher', {
     name: 'register_teacher',
     action() {
-        Session.set('route_index_string', 'JOIN');
+        Session.set('route_index_string', 'LOGIN');
         BlazeLayout.render('App_body', { main: 'Register_teacher' });
+    }
+});
+
+FlowRouter.route('/teacher/home', {
+    name: 'teacher_home',
+    action() {
+        BlazeLayout.render('App_body', { main: 'Teacher_home' });
+    }
+});
+
+FlowRouter.route('/student/home', {
+    name: 'student',
+    action() {
+        BlazeLayout.render('App_body', { main: 'Student_home' });
     }
 });
 
