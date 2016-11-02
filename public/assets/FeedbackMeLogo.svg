@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>No Background</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-3" transform="translate(-645.000000, -67.000000)">
+            <g id="No-Background" transform="translate(645.000000, 67.000000)">
+                <g id="Group-5">
+                    <path d="M50,50 C50,36.1928813 61.1928813,25 75,25 C88.8071187,25 100,36.1928813 100,50 C100,77.6142375 77.6142375,100 50,100 C22.3857625,100 0,77.6142375 0,50 C0,63.8071187 11.1928813,75 25,75 C38.8071187,75 50,63.8071187 50,50 Z" id="Combined-Shape" fill="#50E3C2"></path>
+                    <circle id="Oval-2" fill="#FFFFFF" cx="75" cy="50" r="5"></circle>
+                    <path d="M50,25 C50,11.1928813 61.1928813,-1.42108547e-14 75,-1.42108547e-14 C88.8071187,-1.42108547e-14 100,11.1928813 100,25 C100,52.6142375 77.6142375,75 50,75 C22.3857625,75 5.68434189e-14,52.6142375 5.68434189e-14,25 C5.68434189e-14,38.8071187 11.1928813,50 25,50 C38.8071187,50 50,38.8071187 50,25 Z" id="Combined-Shape" fill="#FFFFFF" transform="translate(50.000000, 37.500000) rotate(180.000000) translate(-50.000000, -37.500000) "></path>
+                    <circle id="Oval" fill="#50E3C2" cx="25" cy="50" r="5"></circle>
+                    <g id="Group-4" transform="translate(45.000000, 47.000000)">
+                        <path d="M5.43424342,1 L5.10553229,5.99890839 C5.07044251,5.99963494 5.03526389,6 5,6 C2.23857625,6 -2.80087811e-14,3.76142375 -2.78396927e-14,1 L5.43424342,1 Z" id="Combined-Shape" fill="#50E3C2"></path>
+                        <path d="M9.87089082,1 L9.87089082,5.99994547 C9.86302783,5.99998181 9.85516056,6 9.84728904,6 C7.08586529,6 4.84728904,3.76142375 4.84728904,1 L9.87089082,1 Z" id="Combined-Shape" fill="#FFFFFF" transform="translate(7.359090, 3.500000) rotate(270.000000) translate(-7.359090, -3.500000) "></path>
+                    </g>
+                    <polyline id="Path-2" fill="#50E3C2" points="50.2999878 53 50.3500061 51.5 50.3999939 50 50.6000061 48 50 48 49 52"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

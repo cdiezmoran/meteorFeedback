@@ -26,5 +26,10 @@ Template.Default_header.events({
     'click .close' (event) {
         console.log("MODAL CLOSED VIA X");
         modal.hide();
+    },
+
+    'click .role-label'(event) {
+        console.log("Closed via button");
+        modal.hide();
     }
 });

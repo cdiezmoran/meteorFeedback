@@ -4,13 +4,22 @@ div.navbar-fixed {
 }
 
 .main-nav {
-    background-color: white;
+    background-color: rgb(245, 245, 245);
 
     .brand-logo, ul > li > a {
         color: black;
         font-size: 20px;
         font-weight: 300;
     }
+}
+
+.feedback-logo > img {
+    position: absolute;
+    height: 80%;
+    width: auto;
+    top: 10%;
+    left: .5%;
+    // transform: translate(-50%, 0);
 }
 
 nav ul a:hover {
@@ -29,14 +38,64 @@ nav ul a:hover {
     color: rgb(162, 66, 153);
 }
 
-// Student Nav
+// Logged in Side Nav
 div.navbar-side-fixed {
     position: fixed;
     height: 100%;
     top: 0;
     left: 0;
-    background-color: rgb(225, 225, 225);
+    background-color: rgb(250, 250, 250);
+    overflow: hidden;
+    box-shadow: 1px 1px 4px rgb(50, 50, 50);
+    transition: 0.5s;
+    z-index: 5
 }
+
+div.navbar-side-fixed:hover {
+    box-shadow: 0 8px 16px rgb(0, 0, 0);
+}
+
+// Top half of side nav
+.navbar-side-fixed > a > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15% 0%;
+}
+
+.navbar-side-fixed > a {
+    color: black;
+    fill: black;
+}
+
+.navbar-side-fixed > a:first-child > img {
+    padding-top: 25%;
+}
+
+// Bottom half of side nav
+.navbar-side-content-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.navbar-side-content-bottom > a > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15% 0%;
+}
+
+.navbar-side-content-bottom > a:last-child > img {
+    padding-bottom: 25%;
+}
+
+// .logout {
+//     width: 5vh;
+//     height: auto;
+//     border-radius: 50px;
+//     background-color: blue;
+// }
 
 // Custom Classes
 .c-center-align {

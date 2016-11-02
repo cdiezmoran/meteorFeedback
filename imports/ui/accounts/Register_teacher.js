@@ -34,13 +34,13 @@ Template.Register_teacher.helpers({
 });
 
 Template.Register_teacher.events({
-    'click .signup-submit'(event) {
+    'click .login-submit'(event) {
         event.preventDefault();
 
-        handleSignupSubmit();
+        handleLoginSubmit();
     },
 
-    'submit .form-signup'(event) {
+    'click .signup-submit'(event) {
         event.preventDefault();
 
         handleSignupSubmit();
@@ -52,30 +52,47 @@ Template.Register_teacher.events({
         Session.set('route_index_string', 'LOGIN');
     },
 
-    'click .go-to-join'(event) {
+    'click .go-to-signup'(event) {
         event.preventDefault();
 
         Session.set('route_index_string', 'SIGNUP');
-    },
-
-    'click .signin-submit'(event) {
-        event.preventDefault();
-
-        handleSigninSubmit();
-    },
-
-    'submit .form-signin'(event) {
-        event.preventDefault();
-
-        handleSigninSubmit();
     }
 });
 
+function handleLoginSubmit() {
+    //Get values from fields
+    const email = $('[name=email]').val().trim();
+    const password = $('[name=password]').val();
+    const errorLabel = $('#error-label-login');
+
+    //Check if fields are empty
+    if (!email) {
+        errorLabel.text('Email field is required.');
+        return;
+    }
+
+    if(!password) {
+        errorLabel.text('Password field is required.');
+        return;
+    }
+
+    //Login the user
+    Meteor.loginWithPassword(email, password, (error) => {
+        if (error) {
+            errorLabel.text('Invalid credentials, please try again.');
+        }
+        else {
+            // Session.set('route_index_string', 'SIGNUP');
+            FlowRouter.go('/teacher/home')
+        }
+    });
+}
+
 function handleSignupSubmit() {
   //get values from textfields
+  const prefName = $('[name=prefName]').val();
   const email = $('[name=email]').val().trim();
   const password = $('[name=password]').val();
-  const prefName = $('[name=prefName]').val();
   const errorLabel = $('#error-label-signup');
 
   //Check if fields are empty
@@ -108,36 +125,7 @@ function handleSignupSubmit() {
     else {
       Meteor.loginWithPassword(email, password);
       // Change me to route to home after logging in user to respective home page
-      FlowRouter.go('/');
-    }
-  });
-}
-
-function handleSigninSubmit() {
-  //Get values from fields
-  const email = $('[name=email]').val().trim();
-  const password = $('[name=password]').val();
-  const errorLabel = $('#error-label-login');
-
-  //Check if fields are empty
-  if (!email) {
-    errorLabel.text('Email field is required.');
-    return;
-  }
-
-  if(!password) {
-    errorLabel.text('Password field is required.');
-    return;
-  }
-
-  //Login the user
-  Meteor.loginWithPassword(email, password, (error) => {
-    if (error) {
-      errorLabel.text('Invalid credentials, please try again.');
-    }
-    else {
-        // Session.set('route_index_string', 'SIGNUP');
-        FlowRouter.go('/teacher/home')
+      FlowRouter.go('/teacher/home');
     }
   });
 }

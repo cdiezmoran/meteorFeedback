@@ -1,32 +1,22 @@
 <template name="App_body">
+    <div class="container">
+        <!--  Set Nav bar -->
+        {{#if currentUser}}
+            <!-- {{#if isInRole 'student'}} -->
+                    <!-- {{> Student_header}} -->
+            <!-- {{/if}} -->
 
-    {{#if currentUser}}
-
-        {{#if isInRole 'student' 'student-group'}}
-            <div class="container">
-                {{> Student_header}}
-
-                <!-- MAIN CONTENT HERE -->
-                {{> Template.dynamic template=main}}
-            </div>
-
-        {{/if}}
-
-        {{#if isInRole 'teacher' 'teacher-group'}}
-            <div class="container">
-                {{> Teacher_header}}
-
-                <!-- MAIN CONTENT HERE -->
-                {{> Template.dynamic template=main}}
-            </div>
+            <!-- {{#if isInRole 'teacher'}} -->
+                    {{> Teacher_header}}
+            <!-- {{/if}} -->
+        {{else}}
+            {{> Default_header}}
 
         {{/if}}
-    {{else}}
-        {{> Default_header}}
 
         <!-- MAIN CONTENT HERE -->
         {{> Template.dynamic template=main}}
-    {{/if}}
 
-
+        <!-- {{> Footer}} -->
+    </div>
 </template>
